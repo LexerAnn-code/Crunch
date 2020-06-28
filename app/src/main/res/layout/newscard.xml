@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+    <variable
+        name="articleNewsSecond"
+        type="com.ankit.crunch.NewsArticles2"/>
+</data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <com.google.android.material.card.MaterialCardView
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_width="320dp"
+        app:cardCornerRadius="10dp"
+        android:layout_height="180dp"
+        android:elevation="16dp"
+        android:padding="15dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="10dp"
+        app:cardBackgroundColor="#eeeeee"
+        app:cardUseCompatPadding="true"
+        android:clickable="true"
+        android:focusable="true"
+        >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/news_picture_Second"
+                android:layout_width="320dp"
+                android:layout_height="230dp"
+                android:scaleType="center"
+                android:padding="9dp"
+                app:setImageUrl="@{articleNewsSecond.urlToImage}"></ImageView>
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_alignStart="@id/news_picture_Second"
+                android:layout_marginStart="10dp"
+                android:layout_alignBottom="@id/news_picture_Second"
+                android:padding="12dip"
+                android:ellipsize="end"
+                android:textSize="20sp"
+                android:inputType="none"
+                android:maxLines="2"
+                android:textStyle="bold"
+                android:text="@{articleNewsSecond.description}"
+                android:textColor="#eeeeee" />
+
+<!--            <TextView-->
+<!--                android:id="@+id/textView"-->
+<!--                android:layout_width="300dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginStart="5dp"-->
+<!--                android:layout_marginBottom="10dp"-->
+<!--                android:ellipsize="end"-->
+<!--                android:inputType="none"-->
+<!--                android:maxLines="2"-->
+<!--                android:padding="5dp"-->
+<!--                android:text="@{articleNewsSecond.description}"-->
+
+<!--                android:textColor="@color/colorAccent"-->
+<!--                android:textSize="20dp"></TextView>-->
+        </RelativeLayout>
+    </com.google.android.material.card.MaterialCardView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
