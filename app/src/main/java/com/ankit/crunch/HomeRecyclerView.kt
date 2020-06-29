@@ -1,12 +1,15 @@
 package com.ankit.crunch
 
+import android.app.Activity
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
+import com.ankit.crunch.Ui.DetailActivity
 import com.ankit.crunch.Util.HomeViewHolder
 import com.ankit.crunch.databinding.HomeitemBinding
 
-class HomeRecyclerView:androidx.recyclerview.widget.ListAdapter<NewsArticles, HomeViewHolder>(
+class HomeRecyclerView(val host:Activity):androidx.recyclerview.widget.ListAdapter<NewsArticles, HomeViewHolder>(
     DIF_UTIL
 ) {
     companion object{
@@ -30,5 +33,12 @@ class HomeRecyclerView:androidx.recyclerview.widget.ListAdapter<NewsArticles, Ho
       val current=getItem(position)
         holder.binding.articleNews=current
         holder.binding.executePendingBindings()
+        holder.itemView.setOnClickListener {
+            host.startActivity(
+                Intent(host,DetailActivity::class.java).apply {
+                    putExtra(DetailActivity.EXTRA_POST,current)
+                }
+            )
+        }
     }
 }

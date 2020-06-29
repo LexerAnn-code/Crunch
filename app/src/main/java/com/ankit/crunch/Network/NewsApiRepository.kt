@@ -1,5 +1,7 @@
 package com.example.newsfinishedapp.Network
 
+import com.ankit.crunch.NewsArticles
+import kotlinx.coroutines.Deferred
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query
@@ -37,6 +39,4 @@ interface NewsApiRepository{
         @Query("sources")sortBy:String= sources_,
         @Query("apiKey")key:String=API_KEY
     ):_ApiResponse
-
-
 }

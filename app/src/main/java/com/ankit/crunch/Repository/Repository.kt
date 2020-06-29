@@ -3,9 +3,16 @@ package com.ankit.crunch.Repository
 import androidx.lifecycle.LiveData
 import com.ankit.crunch.Database.NewsDao
 import com.ankit.crunch.NewsArticles
+import com.epam.coroutinecache.api.CacheParams
+import com.epam.coroutinecache.api.CoroutinesCache
+import com.epam.coroutinecache.mappers.GsonMapper
+import com.example.newsfinishedapp.Network.ApiResponse
 import com.example.newsfinishedapp.Network.NewsApiRepository
+import kotlinx.coroutines.Deferred
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
+import retrofit2.Retrofit
+import java.io.File
 
 class Repository(private val newsApiRepository: NewsApiRepository,private val newsDao: NewsDao) {
     private lateinit var allSaveData:LiveData<List<NewsArticles>>

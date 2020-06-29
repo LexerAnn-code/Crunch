@@ -34,7 +34,7 @@ val retrofitServiceModule= module {
 }
 val netWork= module {
     fun provideCache(application: Application): Cache {
-        val cacheSize = 10 * 1024 * 1024
+        val cacheSize = (10 * 1024 * 1024).toLong()
         return Cache(application.cacheDir, cacheSize.toLong())
     }
     fun hasNetwork(context:Context):Boolean?{
@@ -47,26 +47,18 @@ val netWork= module {
         return isConnected
     }
     fun provideHttpClient(cache: Cache,context:Context): OkHttpClient {
-        val okHttpClientBuiler = OkHttpClient.Builder().cache(cache)
-            .addInterceptor { chain ->
-                var request = chain.request()
-                request = if (hasNetwork(context)!!)
-                    request.newBuilder().header("Cache-Control", "public ,max-age=" + 5).build()
-                else
-                    request.newBuilder().header(
-                        "Cache-Control",
-                        "public,only-if-cached, max-stale=" + 60 * 60 * 24 * 7
-                    ).build()
-                chain.proceed(request)
-            }.build()
-//                val retrofit=Retrofit.Builder()
-//                    .baseUrl("https://newsapi.org/")
-//                    .addCallAdapterFactory(CoroutineCallAdapterFactory())
-//                    .addConverterFactory(GsonConverterFactory.create(GsonBuilder().setFieldNamingPolicy(FieldNamingPolicy.IDENTITY).create()))
-//                    .client(okHttpClientBuiler)
-//                    .build()
-
-                return okHttpClientBuiler
+                return OkHttpClient.Builder().cache(cache)
+                    .addInterceptor { chain ->
+                        var request = chain.request()
+                        request = if (hasNetwork(context)!!)
+                            request.newBuilder().header("Cache-Control", "public ,max-age=" + 5).build()
+                        else
+                            request.newBuilder().header(
+                                "Cache-Control",
+                                "public,only-if-cached, max-stale=" + 60 * 60 * 24 * 7
+                            ).build()
+                        chain.proceed(request)
+                    }.build()
             }
 
     fun provideGson(): Gson {
