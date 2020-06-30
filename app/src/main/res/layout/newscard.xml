@@ -9,21 +9,18 @@
         name="articleNewsSecond"
         type="com.ankit.crunch.NewsArticles2"/>
 </data>
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
     <com.google.android.material.card.MaterialCardView
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_width="320dp"
+        android:layout_width="match_parent"
         app:cardCornerRadius="10dp"
-        android:layout_height="180dp"
+        android:layout_height="150dp"
         android:elevation="16dp"
         android:padding="15dp"
         android:layout_marginTop="60dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginEnd="10dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
         app:cardBackgroundColor="#eeeeee"
         app:cardUseCompatPadding="true"
         android:clickable="true"
@@ -74,5 +71,4 @@
 <!--                android:textSize="20dp"></TextView>-->
         </RelativeLayout>
     </com.google.android.material.card.MaterialCardView>
-    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

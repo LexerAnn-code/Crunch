@@ -26,7 +26,7 @@ private lateinit var nAdapter: HomeRecyclerView
     ): View? {
         // Inflate the layout for this fragment
         binding=DataBindingUtil.inflate(inflater,R.layout.fragment_home,container,false)
-        secondAdapter=NewsSecondRecycler()
+        secondAdapter=NewsSecondRecycler(this@HomeFragment.requireActivity())
         nAdapter= HomeRecyclerView(this@HomeFragment.requireActivity())
 
         binding.secondadapter=secondAdapter

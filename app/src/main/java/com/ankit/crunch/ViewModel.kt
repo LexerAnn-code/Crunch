@@ -17,6 +17,15 @@ class ViewModel(
         fetchData()
         debugger("Reading")
     }
+fun saveNewsLive():LiveData<List<NewsArticles>>{
+        return repository.getNews()
+    }
+    fun saveNewsLive2():LiveData<List<NewsArticles2>>{
+        return repository.getNews_2()
+    }
+
+
+
 
     private val _data = MutableLiveData<MutableList<NewsArticles>>()
     val data: LiveData<MutableList<NewsArticles>> get() = _data
@@ -25,12 +34,16 @@ class ViewModel(
     val datas: LiveData<MutableList<NewsArticles2>> get() = _datas
 
 
-    fun saveNews(newsArticles: NewsArticles) {
+  suspend  fun saveNews(newsArticles: NewsArticles) {
         viewModelScope.launch {
             repository.insertNewsData(newsArticles)
         }
     }
-
+    suspend  fun saveNews_2(newsArticles2: NewsArticles2) {
+        viewModelScope.launch {
+            repository.insertNewsData_2(newsArticles2)
+        }
+    }
     fun fetchData() {
         viewModelScope.launch {
             try {

@@ -11,9 +11,11 @@ import kotlinx.android.parcel.Parcelize
 @Entity(tableName = "news")
 @Parcelize
 data class NewsArticles(
+    @PrimaryKey(autoGenerate = true)
+    var id:Long=0,
     @SerializedName("author")
     @Expose
-    @PrimaryKey val author: String,
+    val author: String,
     @SerializedName("title")
     @Expose
     val title: String,

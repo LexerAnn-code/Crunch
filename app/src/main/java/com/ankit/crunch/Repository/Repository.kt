@@ -3,33 +3,32 @@ package com.ankit.crunch.Repository
 import androidx.lifecycle.LiveData
 import com.ankit.crunch.Database.NewsDao
 import com.ankit.crunch.NewsArticles
-import com.epam.coroutinecache.api.CacheParams
-import com.epam.coroutinecache.api.CoroutinesCache
-import com.epam.coroutinecache.mappers.GsonMapper
-import com.example.newsfinishedapp.Network.ApiResponse
+import com.ankit.crunch.NewsArticles2
+import com.ankit.crunch.debugger
 import com.example.newsfinishedapp.Network.NewsApiRepository
-import kotlinx.coroutines.Deferred
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
-import retrofit2.Retrofit
-import java.io.File
 
 class Repository(private val newsApiRepository: NewsApiRepository,private val newsDao: NewsDao) {
-    private lateinit var allSaveData:LiveData<List<NewsArticles>>
-    suspend fun getNews() {
-        withContext(Dispatchers.IO) {
-          val data= newsDao.savedNews()
-            return@withContext data
-        }
+    fun getNews():LiveData<List<NewsArticles>> {
+       return newsDao.savedNews()
+    }
+    fun getNews_2():LiveData<List<NewsArticles2>> {
+        return newsDao.savedNews_2()
     }
         suspend fun insertNewsData(newsArticles: NewsArticles) {
             withContext(Dispatchers.IO) {
+                debugger("Data Saved->>>>>")
                 newsDao.insertNews(newsArticles)
             }
-            suspend fun getAllNewsSaved() {
-                return getNews()
-            }
         }
+    suspend fun insertNewsData_2(newsArticles2: NewsArticles2) {
+        withContext(Dispatchers.IO) {
+            debugger("Data Saved->>>>>")
+            newsDao.insertNews_2(newsArticles2)
+        }
+    }
+
 //            suspend fun callNews():List<com.ankit.crunch.NewsArticles>{
 //                val newsALL=newsApiRepository.getNews()
 //                val listy=newsALL.articles

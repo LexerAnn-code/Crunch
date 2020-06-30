@@ -5,16 +5,17 @@ import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
 import com.ankit.crunch.Ui.DetailActivity
-import com.ankit.crunch.Util.HomeViewHolder
-import com.ankit.crunch.databinding.HomeitemBinding
+import com.ankit.crunch.Util.SavedViewHolder
+import com.ankit.crunch.databinding.SaveditemBinding
 
-class HomeRecyclerView(val host:Activity):androidx.recyclerview.widget.ListAdapter<NewsArticles, HomeViewHolder>(
-    DIF_UTIL
-) {
+class SavedRecyclerView (val host: Activity):ListAdapter<NewsArticles, SavedViewHolder>(
+    DIFF_UTIL
+){
     companion object{
-        private val DIF_UTIL:DiffUtil.ItemCallback<NewsArticles> =
-            object:DiffUtil.ItemCallback<NewsArticles>(){
+        private val DIFF_UTIL: DiffUtil.ItemCallback<NewsArticles> =
+            object: DiffUtil.ItemCallback<NewsArticles>(){
                 override fun areItemsTheSame(
                     oldItem: NewsArticles, newItem: NewsArticles
                 ): Boolean =oldItem.title==newItem.title
@@ -24,22 +25,25 @@ class HomeRecyclerView(val host:Activity):androidx.recyclerview.widget.ListAdapt
             }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HomeViewHolder {
-      val layoutInflater=LayoutInflater.from(parent.context)
-        val binding= HomeitemBinding.inflate(layoutInflater)
-        return HomeViewHolder(binding)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SavedViewHolder {
+        val layoutInflater=LayoutInflater.from(parent.context)
+        val binding=SaveditemBinding.inflate(layoutInflater)
+        return SavedViewHolder(binding)
     }
-    override fun onBindViewHolder(holder: HomeViewHolder, position: Int) {
+
+
+    override fun onBindViewHolder(holder: SavedViewHolder, position: Int) {
       val current=getItem(position)
-        holder.binding.articleNews=current
+        holder.binding.savedNews=current
         holder.binding.executePendingBindings()
         holder.itemView.setOnClickListener {
-            debugger("Recycler")
             host.startActivity(
-                Intent(host,DetailActivity::class.java).apply {
+                Intent(host, DetailActivity::class.java).apply {
                     putExtra(DetailActivity.EXTRA_POST,current)
                 }
             )
         }
+
+
     }
 }

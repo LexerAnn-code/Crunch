@@ -1,12 +1,16 @@
 package com.ankit.crunch
 
+import android.app.Activity
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
+import com.ankit.crunch.Ui.DetailActivity
+import com.ankit.crunch.Ui.DetailActivity_2
 import com.ankit.crunch.Util.NewsSecondViewHolder
 import com.ankit.crunch.databinding.NewscardBinding
 
-class NewsSecondRecycler:androidx.recyclerview.widget.ListAdapter<NewsArticles2,NewsSecondViewHolder>(DIFF_UTIL) {
+class NewsSecondRecycler(val host:Activity):androidx.recyclerview.widget.ListAdapter<NewsArticles2,NewsSecondViewHolder>(DIFF_UTIL) {
     companion object{
         private val DIFF_UTIL:DiffUtil.ItemCallback<NewsArticles2> =
                 object :DiffUtil.ItemCallback<NewsArticles2>(){
@@ -30,5 +34,14 @@ class NewsSecondRecycler:androidx.recyclerview.widget.ListAdapter<NewsArticles2,
         val current=getItem(position)
         holder.binding.articleNewsSecond=current
         holder.binding.executePendingBindings()
+        holder.itemView.setOnClickListener {
+            debugger("Recycler")
+            host.startActivity(
+                Intent(host, DetailActivity_2::class.java).apply {
+                    putExtra(DetailActivity_2.EXTRA_POSTS,current)
+                }
+            )
+        }
+
     }
 }

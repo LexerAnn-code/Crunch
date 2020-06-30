@@ -15,4 +15,8 @@
         android:name="com.ankit.crunch.databaseFragemnt"
         android:label="fragment_database_fragemnt"
         tools:layout="@layout/fragment_database_fragemnt" />
+    <fragment
+        android:id="@+id/savedFragment"
+        android:name="com.ankit.crunch.Ui.savedFragment"
+        android:label="savedFragment" />
 </navigation>
