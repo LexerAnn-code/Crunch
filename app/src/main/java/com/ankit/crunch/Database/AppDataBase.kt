@@ -6,7 +6,7 @@ import com.ankit.crunch.NewsArticles
 import com.ankit.crunch.NewsArticles2
 
 
-@Database(entities = [NewsArticles::class, NewsArticles2::class],version = 5,exportSchema = false)
+@Database(entities = [NewsArticles::class, NewsArticles2::class],version = 6,exportSchema = false)
 abstract class AppDataBase :RoomDatabase() {
     abstract val newsDao:NewsDao
 }

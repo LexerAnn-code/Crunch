@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <View
+        android:id="@+id/shimmer_card"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="60dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:background="#dddddd"></View>
+
+
+    <View
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:id="@+id/thumbnail"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="130dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/shimmer_card"
+        android:background="#dddddd"
+        />
+    <View
+        android:id="@+id/thumb_title"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        app:layout_constraintStart_toEndOf="@id/thumbnail"
+        app:layout_constraintTop_toBottomOf="@id/shimmer_card"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="130dp"
+        android:background="#dddddd"
+        android:layout_marginEnd="20dp"
+        android:layout_marginStart="130dp"></View>
+
+    <View
+        android:id="@+id/thumb_desc"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        app:layout_constraintStart_toEndOf="@id/thumbnail"
+        app:layout_constraintTop_toBottomOf="@id/thumb_title"
+        android:layout_marginTop="25dp"
+        android:background="#dddddd"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="20dp"
+        android:layout_marginStart="130dp"></View>
+
+
+    <View
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:id="@+id/thumbnail2"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/thumbnail"
+        android:background="#dddddd"
+        />
+
+
+    <View
+        android:id="@+id/thumb_title2"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        app:layout_constraintStart_toEndOf="@id/thumbnail2"
+        app:layout_constraintTop_toBottomOf="@id/thumb_desc"
+        android:layout_marginTop="45dp"
+        android:background="#dddddd"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="20dp"
+        android:layout_marginStart="130dp"></View>
+    <View
+        android:id="@+id/thumb_desc2"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+
+        android:layout_marginTop="15dp"
+        android:background="#dddddd"
+        android:layout_marginEnd="20dp"
+        android:layout_marginStart="130dp"
+        app:layout_constraintStart_toEndOf="@id/thumbnail2"
+        app:layout_constraintTop_toBottomOf="@id/thumb_title2"></View>
+
+
+    <View
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:id="@+id/thumbnail3"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/thumbnail2"
+        android:background="#dddddd"
+        />
+
+
+    <View
+        android:id="@+id/thumb_title3"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        app:layout_constraintStart_toEndOf="@id/thumbnail3"
+        app:layout_constraintTop_toBottomOf="@id/thumb_desc2"
+        android:layout_marginTop="45dp"
+        android:background="#dddddd"
+        android:layout_marginEnd="20dp"
+        android:layout_marginStart="130dp"
+       ></View>
+    <View
+        android:id="@+id/thumb_desc3"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_marginTop="15dp"
+        android:background="#dddddd"
+        android:layout_marginEnd="20dp"
+        android:layout_marginStart="130dp"
+        app:layout_constraintStart_toEndOf="@id/thumbnail3"
+        app:layout_constraintTop_toBottomOf="@id/thumb_title3"></View>
+</androidx.constraintlayout.widget.ConstraintLayout>

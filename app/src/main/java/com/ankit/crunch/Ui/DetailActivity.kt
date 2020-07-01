@@ -1,5 +1,8 @@
 package com.ankit.crunch.Ui
 
+
+import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.util.Linkify
@@ -7,6 +10,7 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
+import androidx.core.net.toUri
 import androidx.core.view.isInvisible
 import androidx.core.view.isVisible
 import com.ankit.crunch.NewsArticles
@@ -80,7 +84,15 @@ class DetailActivity : AppCompatActivity() {
             true
         }
         R.id.share -> {
-            Toast.makeText(this,"Share",Toast.LENGTH_LONG).show()
+            val contentNews = intent.getParcelableExtra<NewsArticles>(EXTRA_POST)
+            if (intent.hasExtra(EXTRA_POST)) {
+              val sendIntent:Intent=Intent().apply {
+                  action=Intent.ACTION_SEND
+                  putExtra(Intent.EXTRA_TEXT,"${contentNews.url}")
+                  type="text/plain"
+              }
+                startActivity(sendIntent)
+            }
             true
         }
         else -> {
