@@ -20,9 +20,7 @@ A news app that consumes news api developed by [News API](https://newsapi.org/)
 *   [Koin](https://insert-koin.io), for dependency injection.  
 *   [Mockito](https://site.mockito.org/), for mocking when testing.
 
-## Installing the App
-*   Clone this repository
-git https://github.com/LexerAnn-code/Outlist.git
+
 
 ## Screenshots
-<img src="/screenshots/Screenshot (146).png" width="300"/> <img src="/screenshots/Screenshot (147).png" width="300"/>
+<img src="/screenshot/Screenshot (146).png" width="300"/> <img src="/screenshot/Screenshot (147).png" width="300"/>
